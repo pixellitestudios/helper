@@ -126,6 +126,8 @@ public class HelperRedis implements Redis {
                 (channel, message) -> {
                     try (Jedis jedis = getJedis()) {
                         jedis.publish(channel.getBytes(StandardCharsets.UTF_8), message);
+                    } catch (Exception e) {
+                        // ignored, most likely a message being sent out after jedis was closed
                     }
                 },
                 channel -> {
