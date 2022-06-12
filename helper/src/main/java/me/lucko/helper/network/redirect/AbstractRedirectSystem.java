@@ -98,8 +98,9 @@ public class AbstractRedirectSystem implements RedirectSystem {
                 // add player to the expected players queue
                 this.expectedPlayers.put(message.uuid, r);
 
-                // tell the connect server to move the player
-                this.redirector.redirectPlayer(this.instanceData.getId(), Profile.create(message.uuid, message.username));
+                // commented out as we'll be handling redirects via a custom system in
+                // pixellite network.
+                // this.redirector.redirectPlayer(this.instanceData.getId(), Profile.create(message.uuid, message.username));
             });
 
             // send the response
